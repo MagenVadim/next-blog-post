@@ -1,0 +1,33 @@
+
+body{
+  margin: 0;
+  height: 100vh;
+}
+
+header{
+  height: 80px;
+  background-color: rgb(90, 89, 89);  
+  gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer{
+  background-color: rgb(190, 188, 188); 
+  position: relative;
+  bottom: -700px;
+  font-size: 18px;
+  padding-left: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.container{
+  display: flex;
+  justify-content: center;
+}
+a{
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
