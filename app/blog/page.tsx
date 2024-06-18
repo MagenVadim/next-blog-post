@@ -8,6 +8,8 @@ async function getData() {
             revalidate: 60,
         }
     })
+
+    if(!response.ok) throw new Error('Unable to fetch posts!')
     return response.json()
 }
 

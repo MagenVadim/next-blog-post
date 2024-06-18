@@ -18,13 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
       <body>
-        <TheHeader/>
-        <main className="container">
-          {children}
-        </main>
-        
-        <TheFooter/>
+          <TheHeader/>
+          <main className="container">
+            {children}
+          </main>          
+          <TheFooter/>   
       </body>
     </html>
   );
