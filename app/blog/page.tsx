@@ -1,3 +1,4 @@
+'use client';
 import type { Metadata } from "next";
 import { shallow } from "zustand/shallow";
 import { Posts } from "../components/Posts";
