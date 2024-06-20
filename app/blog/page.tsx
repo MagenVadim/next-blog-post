@@ -1,37 +1,32 @@
+'use client';
+
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getAllPosts } from "@/services/getPost";
+import { useState, useEffect } from "react";
+import { Posts } from "../components/Posts";
 
+// export const metadata: Metadata = {
+//     title: "Blog | Next App",    
+//   };
 
-async function getData() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts',{
-        next:{
-            revalidate: 60,
-        }
-    })
+export default function Blog(){
+    const [posts, setPosts] = useState<any[]>([])
+    const [loading, setLoading] = useState(true)
 
-    if(!response.ok) throw new Error('Unable to fetch posts!')
-    return response.json()
-}
-
-export const metadata: Metadata = {
-    title: "Blog | Next App",    
-  };
-
-export default async function Blog(){
-    const posts = await getData()
+    useEffect(()=>{
+        getAllPosts()
+            .then(setPosts)
+            .finally(()=>setLoading(false))
+    },
+[])
 
     return (
         <div className="blog-container">
             <h1 className="blog-box"> Blog Page </h1>
-            <ul>
-                {posts.map((el:any) =>
-                    <li key={el.id}>
-                        <Link href={`/blog/${el.id}`}> {el.title} </Link>                        
-                    </li>       
-                )}
-            </ul>
-        </div>
-        
-    )
-        
+            {loading ? 
+            (<h3>Loading...</h3>) : (
+               <Posts posts={posts}/>
+            )}            
+        </div>        
+    )        
 }
