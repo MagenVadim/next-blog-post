@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/services/getPost";
 import { useState, useEffect } from "react";
 import { Posts } from "../components/Posts";
+import { PostSearch } from "../components/PostSearch";
 
 // export const metadata: Metadata = {
 //     title: "Blog | Next App",    
@@ -23,6 +24,7 @@ export default function Blog(){
     return (
         <div className="blog-container">
             <h1 className="blog-box"> Blog Page </h1>
+            <PostSearch onSearch={setPosts}/>
             {loading ? 
             (<h3>Loading...</h3>) : (
                <Posts posts={posts}/>
