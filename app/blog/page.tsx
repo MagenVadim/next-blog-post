@@ -27,10 +27,7 @@ export default function Blog(){
         <div className="blog-container">
             <h1 className="blog-box"> Blog Page </h1>
             <PostSearch/>
-            {loading ? 
-            (<h3>Loading...</h3>) : (
-               <Posts posts={posts}/>
-            )}            
+            <Posts/>      
         </div>        
     )        
 }
